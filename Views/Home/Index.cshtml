@@ -1,0 +1,15 @@
+﻿@model List<Anime>
+
+<div class="home-wrapper">
+    <h1 class="home-title">Anime Listesi</h1>
+
+    <div class="anime-grid">
+        @foreach (var anime in Model)
+        {
+            <a href="/Anime/Details/@anime.Id"
+               class="anime-card anime-@anime.Id">
+                <span>@anime.Name</span>
+            </a>
+        }
+    </div>
+</div>

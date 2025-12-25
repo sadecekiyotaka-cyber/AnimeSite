@@ -1,0 +1,17 @@
+﻿@model Comment
+
+<h2>Yorum Güncelle</h2>
+
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <input type="hidden" name="AnimeId" value="@Model.AnimeId" />
+
+    <input name="UserName" value="@Model.UserName" required />
+    <br /><br />
+
+    <textarea name="Content" required>@Model.Content</textarea>
+    <br /><br />
+
+    <button type="submit">Güncelle</button>
+</form>
+

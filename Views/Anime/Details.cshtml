@@ -1,0 +1,44 @@
+﻿@model Anime
+
+<div class="detail-wrapper">
+
+    <h1 class="anime-detail-title">@Model.Name</h1>
+
+    <div class="comment-section">
+        <h2 class="section-title">Yorumlar</h2>
+
+        @if (Model.Comments.Count == 0)
+        {
+            <p class="no-comment">Henüz yorum yok.</p>
+        }
+        else
+        {
+            foreach (var comment in Model.Comments)
+            {
+                <div class="comment-card">
+                    <div class="comment-user">@comment.UserName</div>
+                    <div class="comment-text">@comment.Content</div>
+
+                    <div class="comment-actions">
+                        <a href="/Comment/Edit/@comment.Id">Güncelle</a>
+                        <a href="/Comment/Delete/@comment.Id">Sil</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <div class="comment-form">
+        <h2 class="section-title">Yorum Yap</h2>
+
+        <form method="post" action="/Comment/Create">
+            <input type="hidden" name="AnimeId" value="@Model.Id" />
+
+            <input name="UserName" placeholder="Adınız" required />
+            <textarea name="Content" placeholder="Yorumunuz" required></textarea>
+
+            <button type="submit">Gönder</button>
+        </form>
+    </div>
+
+</div>

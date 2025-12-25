@@ -1,0 +1,324 @@
+﻿/* =====================
+   BASE AYARLAR
+===================== */
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: black;
+}
+
+/* Bootstrap focus fix */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* =====================
+   BAŞLIK ANİMASYONU
+===================== */
+
+@keyframes glowBlink {
+    0% {
+        color: #FFD700;
+        text-shadow: 0 0 5px #FFD700;
+        opacity: 1;
+    }
+
+    50% {
+        color: #FFEB3B;
+        text-shadow: 0 0 20px #FFEB3B;
+        opacity: 0.6;
+    }
+
+    100% {
+        color: #FFD700;
+        text-shadow: 0 0 5px #FFD700;
+        opacity: 1;
+    }
+}
+
+.anime-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-decoration: none;
+    animation: glowBlink 1.5s infinite;
+}
+
+/* =====================
+   ANA SAYFA ORTALAMA
+===================== */
+
+.home-wrapper {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-title {
+    color: #FFD700; /* yorum sayfası sarısı */
+    margin-bottom: 40px;
+    font-size: 32px;
+    text-align: center;
+    text-shadow: 0 0 10px #FFD700;
+}
+
+
+.anime-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 160px);
+    gap: 40px;
+}
+
+/* =====================
+   GERÇEK YILAN BORDER
+===================== */
+
+@keyframes snakeBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.anime-card {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    border-radius: 14px;
+    background-color: var(--card-color);
+    overflow: hidden;
+}
+
+    /* YILAN GİBİ DOLAŞAN ÇİZGİ */
+    .anime-card::before {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 18px;
+        background: linear-gradient( 90deg, transparent, var(--card-color), transparent );
+        animation: snakeBorder 2s linear infinite, glowBlink 1.5s infinite;
+    }
+
+    /* İÇ KISIM */
+    .anime-card::after {
+        content: "";
+        position: absolute;
+        inset: 5px;
+        border-radius: 10px;
+        background-color: var(--card-color);
+        z-index: 1;
+    }
+
+    /* YAZI ÜSTE ÇIKSIN */
+    .anime-card span {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+/* =====================
+   ANİME RENKLERİ
+===================== */
+
+/* Naruto */
+.anime-1 {
+    --card-color: #FFD700;
+}
+
+/* Attack on Titan */
+.anime-2 {
+    --card-color: #FF6F00;
+}
+
+/* Death Note */
+.anime-3 {
+    --card-color: #C77DFF;
+}
+
+/* Demon Slayer */
+.anime-4 {
+    --card-color: #26C6DA;
+}
+
+/* Your Name */
+.anime-5 {
+    --card-color: #42A5F5;
+}
+
+/* =====================
+   ANIME DETAY SAYFASI
+===================== */
+
+.detail-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    color: white;
+}
+
+.anime-detail-title {
+    text-align: center;
+    font-size: 42px;
+    color: #FFD700;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #FFD700;
+}
+
+.section-title {
+    font-size: 24px;
+    color: #FFEB3B;
+    margin-bottom: 20px;
+}
+
+.no-comment {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* =====================
+   YORUM KARTLARI
+===================== */
+
+.comment-card {
+    background-color: #111;
+    border-left: 4px solid #FFD700;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.15);
+}
+
+.comment-user {
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 5px;
+}
+
+.comment-text {
+    color: #eee;
+    margin-bottom: 10px;
+}
+
+.comment-actions a {
+    color: #FFEB3B;
+    margin-right: 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+    .comment-actions a:hover {
+        text-decoration: underline;
+    }
+
+/* =====================
+   YORUM FORMU
+===================== */
+
+.comment-form {
+    margin-top: 50px;
+}
+
+    .comment-form input,
+    .comment-form textarea {
+        width: 100%;
+        background-color: #111;
+        border: 1px solid #FFD700;
+        color: white;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+    }
+
+    .comment-form textarea {
+        min-height: 100px;
+    }
+
+    .comment-form button {
+        background-color: #FFD700;
+        color: black;
+        border: none;
+        padding: 10px 25px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+        .comment-form button:hover {
+            background-color: #FFEB3B;
+        }
+
+/* =====================
+   ANA SAYFA KARELERİ
+   (DETAY SAYFASIYLA UYUMLU)
+===================== */
+
+.anime-card {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #000; /* İÇİ SİYAH */
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+    /* YILAN GİBİ DOLAŞAN KENAR */
+    .anime-card::before {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 18px;
+        background: linear-gradient( 90deg, transparent, var(--card-color), transparent );
+        animation: snakeBorder 2s linear infinite;
+    }
+
+    /* İÇ ALAN (KENARI BOŞALTMAK İÇİN) */
+    .anime-card::after {
+        content: "";
+        position: absolute;
+        inset: 5px;
+        border-radius: 10px;
+        background-color: #000;
+        z-index: 1;
+    }
+
+    /* YAZI */
+    .anime-card span {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: var(--card-color);
+        text-shadow: 0 0 10px var(--card-color);
+    }
